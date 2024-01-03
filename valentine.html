@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamster Love</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #heartButton {
+            font-size: 50px;
+            background-color: #ff5c8d;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        #hamsterImage {
+            display: none;
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="heartButton" onclick="showHamster()">❤️</button>
+
+    <img id="hamsterImage" src="  data:image/jpeg;base64,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" alt="Hamster">
+
+    <script>
+        function showHamster() {
+            var heartButton = document.getElementById('heartButton');
+            var hamsterImage = document.getElementById('hamsterImage');
+            
+            heartButton.style.display = 'none';
+            hamsterImage.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
